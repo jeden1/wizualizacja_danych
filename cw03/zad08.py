@@ -2,6 +2,7 @@ def ciag(a1, r, ile):
     for krok in range(ile+1):
         print(a1 + krok * r)
 
+
 zapetlone = True
 
 while (zapetlone == True):
@@ -14,7 +15,7 @@ while (zapetlone == True):
         ciag(a1, r, ile)
     elif( opcja == "t"):
         zapetlone = False
-        ciag(-1, 3, 10)
+        ciag(-1, 3, 11)
     else:
         print("Nie wiem co wpisałeś :(")
         continue
