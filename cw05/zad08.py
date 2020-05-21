@@ -6,21 +6,18 @@ class Samogloski:
         else:
             raise TypeError
         self.index = 0
-        self.end = len(zdanie)
-        self.samogloski = ["a", "ą", "e", "ę", "i", "o", "ó", "u", "y"]
+        self.end = len(zdanie)+1
 
     def __iter__(self):
         return self
 
     def __next__(self):
-        if self.index == self.end:
-            raise StopIteration
-        for element in self.samogloski:
-            if self.zdanie[self.index] == element:
-                return self.zdanie[self.index]
-                self.index += 1
-                
+        samogloski = ["a", "ą", "e", "ę", "i", "o", "ó", "u", "y"]
+        while self.zdanie[self.index].lower() not in samogloski:
+            self.index += 1
+        buffer = self.zdanie[self.index]
         self.index += 1
+        return buffer
 
 
 def wyswietl(tekst):
@@ -36,3 +33,14 @@ def wyswietl(tekst):
 zdanie = "Iterator zwracający tylko samogłoski"
 
 wyswietl(zdanie)
+
+'''
+    def __next__(self):
+        if self.index == self.end:
+            raise StopIteration
+        for element in self.samogloski:
+            if self.zdanie[self.index].lower() == element:
+                return self.zdanie[self.index]
+                self.index += 1       
+        self.index += 1
+'''
